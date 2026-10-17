@@ -624,6 +624,8 @@ section{padding:106px 0}
 }
 /* Copy now sits under the video across the full column. */
 .mascot-grid .mascot-copy{max-width:74ch}
+.tweet-embed{max-width:550px;margin:8px auto 0}
+.tweet-embed .twitter-tweet{margin:0 auto!important}
 
 /* Music on/off — the only control on the video.
    The video itself is pointer-events:none, so this button is the single thing
