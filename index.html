@@ -101,7 +101,7 @@
 
     <div class="cta reveal">
       <a class="btn btn-lg" id="buy-primary" href="#buy">Buy $GROKLET</a>
-      <a class="btn btn-lg btn-ghost" href="https://dexscreener.com/search?q=GROKLET" target="_blank" rel="noopener">
+      <a class="btn btn-lg btn-ghost" href="https://dexscreener.com/robinhood/0x68864fa6909f1062b7a117712249031b280d7131" target="_blank" rel="noopener">
         Live chart <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
       </a>
     </div>
@@ -109,18 +109,24 @@
     <!-- contract -->
     <div class="ca reveal">
       <span class="ca-label">Contract</span>
-      <code id="ca-text">Coming soon</code>
+      <code id="ca-text">0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc</code>
+      <button class="ca-copy" id="ca-copy" type="button" aria-label="Copy contract address">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        <span>Copy</span>
+      </button>
     </div>
-    <p class="ca-warn reveal">The address will be posted here. It will be the only one.</p>
+    <p class="ca-warn reveal">Always verify the address. It is the only one.</p>
 
     <!-- live stats -->
     <div class="stats reveal" id="stats" aria-live="polite">
+      <div class="stat"><span class="k">Name</span><span class="v">GROKLET</span></div>
+      <div class="stat"><span class="k">Ticker</span><span class="v">$GROKLET</span></div>
       <div class="stat"><span class="k">Price</span><span class="v" data-stat="price">—</span></div>
       <div class="stat"><span class="k">Market cap</span><span class="v" data-stat="mcap">—</span></div>
       <div class="stat"><span class="k">Liquidity</span><span class="v" data-stat="liq">—</span></div>
       <div class="stat"><span class="k">24h</span><span class="v" data-stat="chg">—</span></div>
     </div>
-    <p class="stats-note" id="stats-note">Live once $GROKLET is listed</p>
+    <p class="stats-note" id="stats-note">Live from DexScreener</p>
 
   </div>
   <div class="scroll-hint" aria-hidden="true"><span></span></div>
@@ -237,7 +243,7 @@
     <header class="sec-head reveal">
       <span class="sec-label">Token</span>
       <h2 class="section-title">The token</h2>
-      <p class="section-sub">The name, the ticker, and the mark. Numbers update live once a pair exists.</p>
+      <p class="section-sub">The name, the ticker, and the mark.</p>
     </header>
 
     <div class="cards">
@@ -257,34 +263,19 @@
         <span class="s">Forehead and pendant</span>
       </div>
       <div class="card reveal">
-        <span class="k">Market cap</span>
-        <span class="v" data-stat="mcap">—</span>
-        <span class="s">Live</span>
+        <span class="k">LP</span>
+        <span class="v">Locked</span>
+        <span class="s">Liquidity locked</span>
       </div>
       <div class="card reveal">
-        <span class="k">Liquidity</span>
-        <span class="v" data-stat="liq">—</span>
-        <span class="s">Listed pair, when live</span>
+        <span class="k">Total supply</span>
+        <span class="v">1B</span>
+        <span class="s">1,000,000,000</span>
       </div>
       <div class="card reveal">
-        <span class="k">24h volume</span>
-        <span class="v" data-stat="vol">—</span>
-        <span class="s">Live</span>
-      </div>
-      <div class="card reveal">
-        <span class="k">24h trades</span>
-        <span class="v" data-stat="txns">—</span>
-        <span class="s" data-stat="txsplit">Buys vs sells</span>
-        <span class="pressure" aria-hidden="true"><i data-stat="buybar"></i></span>
-      </div>
-      <div class="card reveal">
-        <span class="k">Trend</span>
-        <span class="v tf" >
-          <span><em>1h</em><b data-stat="h1">—</b></span>
-          <span><em>6h</em><b data-stat="h6">—</b></span>
-          <span><em>24h</em><b data-stat="h24">—</b></span>
-        </span>
-        <span class="s">One window can flatter; three cannot</span>
+        <span class="k">Buy / sell tax</span>
+        <span class="v">0%</span>
+        <span class="s">No tax on either side</span>
       </div>
     </div>
 
@@ -292,8 +283,8 @@
 
     <div class="verify reveal">
       <span>Find the mark</span>
-      <a href="https://dexscreener.com/search?q=GROKLET" target="_blank" rel="noopener">DexScreener</a>
-      <a href="https://pancakeswap.finance/swap?chain=bsc" target="_blank" rel="noopener">PancakeSwap</a>
+      <a href="https://dexscreener.com/robinhood/0x68864fa6909f1062b7a117712249031b280d7131" target="_blank" rel="noopener">DexScreener</a>
+      <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc" target="_blank" rel="noopener">Uniswap</a>
       <a href="https://x.com/grokletonx" target="_blank" rel="noopener">X</a>
     </div>
   </div>
@@ -312,28 +303,29 @@
       <li class="step reveal">
         <span class="n">01</span>
         <h3>Get a wallet</h3>
-        <p>Install MetaMask, Trust Wallet or Rabby, and switch the network to BNB Chain.</p>
+        <p>Install MetaMask, Trust Wallet, Rabby, or Robinhood Wallet, and switch the network to Robinhood Chain.</p>
       </li>
       <li class="step reveal">
         <span class="n">02</span>
-        <h3>Fund it with BNB</h3>
-        <p>Buy BNB on any exchange and withdraw it to your wallet on BNB Chain. Keep a little spare for gas.</p>
+        <h3>Fund it with ETH</h3>
+        <p>Bridge or withdraw ETH onto Robinhood Chain. Keep a little spare for gas.</p>
       </li>
       <li class="step reveal">
         <span class="n">03</span>
-        <h3>Open PancakeSwap</h3>
-        <p>Connect your wallet. When the GROKLET contract is posted above, paste that address into the token field — and no other.</p>
+        <h3>Open Uniswap</h3>
+        <p>Connect your wallet and paste the GROKLET contract into the token field. It is the only address.</p>
+        <button class="mini-copy" type="button" data-copy="0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc">Copy contract</button>
       </li>
       <li class="step reveal">
         <span class="n">04</span>
         <h3>Swap and travel</h3>
-        <p>Swap your BNB for $GROKLET, confirm in your wallet, and welcome aboard. Then come make some art.</p>
+        <p>Swap your ETH for $GROKLET, confirm in your wallet, and welcome aboard. Then come make some art.</p>
       </li>
     </ol>
 
     <div class="buy-cta reveal">
-      <a class="btn btn-lg" href="https://pancakeswap.finance/swap?chain=bsc" target="_blank" rel="noopener">
-        Swap on PancakeSwap <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+      <a class="btn btn-lg" href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc" target="_blank" rel="noopener">
+        Swap on Uniswap <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
       </a>
     </div>
   </div>
@@ -368,7 +360,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2.2h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.9l7.9-9L1.5 2.2h7l4.8 6.4 5.6-6.4Zm-1.2 17.9h1.9L6.4 4.1H4.4l13.3 16Z"/></svg>
         <span>@grokletonx</span>
       </a>
-      <a class="social" href="https://dexscreener.com/search?q=GROKLET" target="_blank" rel="noopener">
+      <a class="social" href="https://dexscreener.com/robinhood/0x68864fa6909f1062b7a117712249031b280d7131" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.5 9 11l4 4 8-8.5"/><path d="M15 6.5h6v6"/></svg>
         <span>Chart</span>
       </a>
@@ -384,7 +376,7 @@
         <img src="/assets/img/mascot-avatar.jpg" alt="" width="30" height="30" decoding="async">
         <span>GROKLET</span>
       </a>
-      <code class="foot-ca">$GROKLET</code>
+      <code class="foot-ca" data-copy="0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc">0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc</code>
     </div>
     <p class="disclaimer">
       $GROKLET is a meme coin with no intrinsic value and no expectation of financial return. It is a community

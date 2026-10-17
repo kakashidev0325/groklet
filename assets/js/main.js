@@ -4,7 +4,7 @@
 (() => {
   'use strict';
 
-  const CONTRACT = '';
+  const CONTRACT = '0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc';
   const hasContract = /^0x[0-9a-fA-F]{40}$/.test(CONTRACT);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = matchMedia('(pointer: coarse)').matches;
@@ -1014,7 +1014,7 @@
   const cards = document.querySelectorAll('[data-verify]');
   if (!cards.length || typeof fetch !== 'function') return;
 
-  const CONTRACT = '';
+  const CONTRACT = '0x3Cd85a05Fe61e744e0c52baeB9e497903883c2dc';
   if (!/^0x[0-9a-fA-F]{40}$/.test(CONTRACT)) return;
   // Two independent providers: if the first is rate-limited or down, the claim
   // is still checkable rather than silently unverified.
