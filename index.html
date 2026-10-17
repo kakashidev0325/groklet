@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GROKLET — The Mark in the Signal</title>
+<meta name="description" content="GROKLET is a teal wanderer with galaxy eyes and a cyan X. Name and ticker: GROKLET. $GROKLET.">
+
+<meta property="og:type" content="website">
+<!-- The canonical-url property is deliberately absent: X treats it as the card
+     identity, which collapsed every ?query variant onto one cached card and made
+     cache-busting impossible. rel=canonical above covers search engines.
+     (Written without the literal property name so no regex-based parser can
+     mistake this comment for a real tag.) -->
+<meta property="og:title" content="GROKLET — The Mark in the Signal">
+<meta property="og:description" content="A teal wanderer with galaxy eyes and a cyan X. Name and ticker: GROKLET.">
+<meta property="og:image" content="/assets/img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GROKLET — The Mark in the Signal">
+<meta name="twitter:description" content="A teal wanderer with galaxy eyes and a cyan X. Name and ticker: GROKLET.">
+<meta name="twitter:image" content="/assets/img/og-card.jpg">
+<meta name="twitter:image:alt" content="GROKLET, a teal wanderer with a glowing cyan X">
+<meta property="og:image:alt" content="GROKLET, a teal wanderer with a glowing cyan X">
+<meta property="og:site_name" content="GROKLET">
+<meta name="theme-color" content="#08060f">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="GROKLET">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.dexscreener.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<canvas id="glcanvas" aria-hidden="true"></canvas>
+<canvas id="dustfield" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<a class="skip" href="#lore">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="GROKLET home">
+      <img src="/assets/img/mascot-avatar.jpg" alt="" width="34" height="34" decoding="async">
+      <span>GROKLET</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#lore">Lore</a>
+      <a href="#mascot">Mascot</a>
+      <a href="#token">Token</a>
+      <a href="#buy">How to buy</a>
+      <a href="#art">Art</a>
+    </nav>
+    <a class="btn btn-sm" id="nav-buy" href="#buy">Buy $GROKLET</a>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+
+    <p class="eyebrow reveal">
+      <span class="dot"></span> The mark in the signal
+    </p>
+
+    <figure class="hero-mascot reveal">
+      <span class="hero-glow" aria-hidden="true"></span>
+      <img src="/assets/img/mascot-hero.jpg" width="700" height="700" fetchpriority="high"
+           decoding="async"
+           alt="GROKLET, a teal wanderer with galaxy eyes and a glowing cyan X">
+    </figure>
+
+    <h1 class="wordmark reveal" aria-label="GROKLET">
+      <span>G</span><span>R</span><span>O</span><span>K</span><span>L</span><span>E</span><span>T</span>
+    </h1>
+
+    <p class="lede reveal">
+      A teal wanderer with galaxy eyes and a cyan X — the mark that stays when the noise fades.
+      What the feed leaves behind is <strong>GROKLET</strong>.
+    </p>
+
+    <div class="chips reveal" role="list">
+      <span class="chip" role="listitem">Name GROKLET</span>
+      <span class="chip" role="listitem">Ticker $GROKLET</span>
+      <span class="chip" role="listitem">Galaxy eyes</span>
+      <span class="chip" role="listitem">The cyan X</span>
+    </div>
+
+    <div class="cta reveal">
+      <a class="btn btn-lg" id="buy-primary" href="#buy">Buy $GROKLET</a>
+      <a class="btn btn-lg btn-ghost" href="https://dexscreener.com/search?q=GROKLET" target="_blank" rel="noopener">
+        Live chart <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+      </a>
+    </div>
+
+    <!-- contract -->
+    <div class="ca reveal">
+      <span class="ca-label">Contract</span>
+      <code id="ca-text">Coming soon</code>
+    </div>
+    <p class="ca-warn reveal">The address will be posted here. It will be the only one.</p>
+
+    <!-- live stats -->
+    <div class="stats reveal" id="stats" aria-live="polite">
+      <div class="stat"><span class="k">Price</span><span class="v" data-stat="price">—</span></div>
+      <div class="stat"><span class="k">Market cap</span><span class="v" data-stat="mcap">—</span></div>
+      <div class="stat"><span class="k">Liquidity</span><span class="v" data-stat="liq">—</span></div>
+      <div class="stat"><span class="k">24h</span><span class="v" data-stat="chg">—</span></div>
+    </div>
+    <p class="stats-note" id="stats-note">Live once $GROKLET is listed</p>
+
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ── LORE ─────────────────────────────────────────────── -->
+<section id="lore" class="lore">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-label">Lore</span>
+      <h2 class="section-title">The signal</h2>
+    </header>
+
+    <article class="chapter reveal">
+      <div class="numeral" aria-hidden="true">I</div>
+      <div class="chapter-body">
+        <h3>Nothing in the noise is wasted</h3>
+        <p>Every signal leaves a remainder. A glint, a glyph, a mark too small to trend.
+           The feed scrolls past it. For a long time, so did everyone else.</p>
+      </div>
+      <figure class="chapter-art"><img src="/assets/img/chapter-1.jpg" alt="GROKLET standing before a crowd of smaller marked wanderers under a moon" loading="lazy" width="620" height="620" decoding="async"></figure>
+    </article>
+
+    <article class="chapter reveal">
+      <div class="numeral" aria-hidden="true">II</div>
+      <div class="chapter-body">
+        <h3>Then a star opened</h3>
+        <p>A galaxy lit up behind two wide eyes and the remainders pulled together — given a face,
+           given a vest, given an X. What the timeline discarded stood up and looked back.</p>
+      </div>
+      <figure class="chapter-art"><img src="/assets/img/chapter-2.jpg" alt="GROKLET on a cliff, holding a cyan point of light under a spiral galaxy" loading="lazy" width="620" height="620" decoding="async"></figure>
+    </article>
+
+    <article class="chapter reveal">
+      <div class="numeral" aria-hidden="true">III</div>
+      <div class="chapter-body">
+        <h3>It carries an X</h3>
+        <p>The X on the forehead is the coordinate. The X on the pendant is the same promise, worn close.
+           GROKLET does not negotiate with the noise.</p>
+      </div>
+      <figure class="chapter-art"><img src="/assets/img/chapter-3.jpg" alt="GROKLET reaching forward as cyan energy arcs from one hand" loading="lazy" width="620" height="620" decoding="async"></figure>
+    </article>
+
+    <article class="chapter reveal">
+      <div class="numeral" aria-hidden="true">IV</div>
+      <div class="chapter-body">
+        <h3>Now it travels, and it is not alone</h3>
+        <p>No roadmap, no promises, no suits. A face for a signal, and a crowd that decided
+           the mark was theirs. That is the whole mechanism.</p>
+      </div>
+      <figure class="chapter-art"><img src="/assets/img/chapter-4.jpg" alt="GROKLET with arms open, surrounded by a cheering crowd of the same mark" loading="lazy" width="620" height="620" decoding="async"></figure>
+    </article>
+  </div>
+</section>
+
+
+<!-- ── MASCOT ───────────────────────────────────────────── -->
+<section id="mascot" class="mascot">
+  <!-- The stage is a direct child of the section, NOT of .wrap. .wrap is a
+       narrower centred column, so a video wider than it could only be centred
+       by overflowing its own grid area — which is what pushed it off to one
+       side. As a plain block with `margin-inline:auto` it is centred on the
+       page by construction. -->
+  <div class="mascot-stage reveal">
+    <img class="mascot-video" src="/assets/img/mascot-stage.jpg" width="1500" height="500"
+         alt="GROKLET in a galaxy, the cyan X glowing on the forehead and the pendant"
+         decoding="async">
+  </div>
+
+  <div class="wrap mascot-grid">
+    <div class="mascot-copy reveal">
+      <h2 class="section-title left">A face for<br>the signal</h2>
+      <p>Protocols get logos. The good ones get a character — something a community can draw badly at 3am and still recognise instantly.</p>
+      <p>GROKLET is that character. Not a product, not a claim on anyone's model, not a promise of yield. A mascot, a mark, and the small bright thing the noise left behind.</p>
+      <ul class="ticks">
+        <li>Teal skin, galaxy eyes, one cyan X</li>
+        <li>Name and ticker are the same word: <code>GROKLET</code></li>
+        <li>Built to be recognised at a glance</li>
+        <li>Community-run. No roadmap, no promises, no suits</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── ART RIBBON ───────────────────────────────────────── -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track" id="ribbon"></div>
+</div>
+
+<!-- ── MARQUEE ──────────────────────────────────────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>The mark in the signal</span><i>✦</i>
+    <span>Galaxy eyes, cyan X</span><i>✦</i>
+    <span>Name GROKLET</span><i>✦</i>
+    <span>Ticker $GROKLET</span><i>✦</i>
+    <span>The mark in the signal</span><i>✦</i>
+    <span>Galaxy eyes, cyan X</span><i>✦</i>
+    <span>Name GROKLET</span><i>✦</i>
+    <span>Ticker $GROKLET</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ── TOKEN ────────────────────────────────────────────── -->
+<section id="token" class="token">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-label">Token</span>
+      <h2 class="section-title">The token</h2>
+      <p class="section-sub">The name, the ticker, and the mark. Numbers update live once a pair exists.</p>
+    </header>
+
+    <div class="cards">
+      <div class="card reveal">
+        <span class="k">Name</span>
+        <span class="v">GROKLET</span>
+        <span class="s">The wanderer</span>
+      </div>
+      <div class="card reveal">
+        <span class="k">Ticker</span>
+        <span class="v">$GROKLET</span>
+        <span class="s">One symbol</span>
+      </div>
+      <div class="card reveal">
+        <span class="k">Mark</span>
+        <span class="v">Cyan X</span>
+        <span class="s">Forehead and pendant</span>
+      </div>
+      <div class="card reveal">
+        <span class="k">Market cap</span>
+        <span class="v" data-stat="mcap">—</span>
+        <span class="s">Live</span>
+      </div>
+      <div class="card reveal">
+        <span class="k">Liquidity</span>
+        <span class="v" data-stat="liq">—</span>
+        <span class="s">Listed pair, when live</span>
+      </div>
+      <div class="card reveal">
+        <span class="k">24h volume</span>
+        <span class="v" data-stat="vol">—</span>
+        <span class="s">Live</span>
+      </div>
+      <div class="card reveal">
+        <span class="k">24h trades</span>
+        <span class="v" data-stat="txns">—</span>
+        <span class="s" data-stat="txsplit">Buys vs sells</span>
+        <span class="pressure" aria-hidden="true"><i data-stat="buybar"></i></span>
+      </div>
+      <div class="card reveal">
+        <span class="k">Trend</span>
+        <span class="v tf" >
+          <span><em>1h</em><b data-stat="h1">—</b></span>
+          <span><em>6h</em><b data-stat="h6">—</b></span>
+          <span><em>24h</em><b data-stat="h24">—</b></span>
+        </span>
+        <span class="s">One window can flatter; three cannot</span>
+      </div>
+    </div>
+
+    <p class="chain-note reveal" id="chain-note" hidden></p>
+
+    <div class="verify reveal">
+      <span>Find the mark</span>
+      <a href="https://dexscreener.com/search?q=GROKLET" target="_blank" rel="noopener">DexScreener</a>
+      <a href="https://pancakeswap.finance/swap?chain=bsc" target="_blank" rel="noopener">PancakeSwap</a>
+      <a href="https://x.com/groklet_x" target="_blank" rel="noopener">X</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW TO BUY ───────────────────────────────────────── -->
+<section id="buy" class="buy">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-label">How to buy</span>
+      <h2 class="section-title">Four steps</h2>
+      <p class="section-sub">Ten minutes if it's your first time.</p>
+    </header>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="n">01</span>
+        <h3>Get a wallet</h3>
+        <p>Install MetaMask, Trust Wallet or Rabby, and switch the network to BNB Chain.</p>
+      </li>
+      <li class="step reveal">
+        <span class="n">02</span>
+        <h3>Fund it with BNB</h3>
+        <p>Buy BNB on any exchange and withdraw it to your wallet on BNB Chain. Keep a little spare for gas.</p>
+      </li>
+      <li class="step reveal">
+        <span class="n">03</span>
+        <h3>Open PancakeSwap</h3>
+        <p>Connect your wallet. When the GROKLET contract is posted above, paste that address into the token field — and no other.</p>
+      </li>
+      <li class="step reveal">
+        <span class="n">04</span>
+        <h3>Swap and travel</h3>
+        <p>Swap your BNB for $GROKLET, confirm in your wallet, and welcome aboard. Then come make some art.</p>
+      </li>
+    </ol>
+
+    <div class="buy-cta reveal">
+      <a class="btn btn-lg" href="https://pancakeswap.finance/swap?chain=bsc" target="_blank" rel="noopener">
+        Swap on PancakeSwap <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ART ──────────────────────────────────────────────── -->
+<section id="art" class="art">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-label">Art</span>
+      <h2 class="section-title">Made for the mark</h2>
+      <p class="section-sub">Scenes of GROKLET — the same teal face, the same cyan X. Click any of them.</p>
+    </header>
+    <div class="gallery" id="gallery"><!-- populated from gallery.json --></div>
+    <div class="art-cta reveal">
+      <a class="btn btn-ghost" href="https://x.com/groklet_x" target="_blank" rel="noopener">
+        Find $GROKLET <svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── JOIN ─────────────────────────────────────────────── -->
+<section class="join">
+  <img class="join-art" src="/assets/img/mascot-join.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" width="900" height="900">
+  <div class="wrap">
+    <div class="halo small" aria-hidden="true"><span></span><span></span><span></span></div>
+    <h2 class="reveal">Come travel with us</h2>
+    <p class="reveal">No promises, no roadmap. Just a teal wanderer with a cyan X.</p>
+    <div class="socials reveal">
+      <a class="social" href="https://x.com/groklet_x" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2.2h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.9l7.9-9L1.5 2.2h7l4.8 6.4 5.6-6.4Zm-1.2 17.9h1.9L6.4 4.1H4.4l13.3 16Z"/></svg>
+        <span>@groklet_x</span>
+      </a>
+      <a class="social" href="https://dexscreener.com/search?q=GROKLET" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.5 9 11l4 4 8-8.5"/><path d="M15 6.5h6v6"/></svg>
+        <span>Chart</span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="#top">
+        <img src="/assets/img/mascot-avatar.jpg" alt="" width="30" height="30" decoding="async">
+        <span>GROKLET</span>
+      </a>
+      <code class="foot-ca">$GROKLET</code>
+    </div>
+    <p class="disclaimer">
+      $GROKLET is a meme coin with no intrinsic value and no expectation of financial return. It is a community
+      mascot project and is not an investment, a security, or a product of any company or exchange. Crypto assets are
+      highly volatile and you can lose everything you put in. Nothing on this page is financial advice —
+      do your own research.
+    </p>
+    <p class="copy">GROKLET · © <span id="year">2026</span> the GROKLET community</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Community art viewer">
+  <button class="lb-close" type="button" aria-label="Close">✕</button>
+  <button class="lb-nav prev" type="button" data-lb-prev aria-label="Previous">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lb-nav next" type="button" data-lb-next aria-label="Next">›</button>
+  <a class="lb-cap" id="lightbox-cap" href="#" target="_blank" rel="noopener"></a>
+</div>
+
+<script src="/assets/js/nebula.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

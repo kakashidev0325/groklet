@@ -1,0 +1,13 @@
+{
+  "name": "GROKLET",
+  "short_name": "GROKLET",
+  "description": "GROKLET is a teal wanderer with galaxy eyes and a cyan X. Name and ticker: GROKLET.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08060f",
+  "theme_color": "#08060f",
+  "icons": [
+    { "src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
